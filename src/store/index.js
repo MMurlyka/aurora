@@ -5,6 +5,9 @@ export default createStore({
 		search: '',
 		items: {},
 	},
+	getters: {
+		entry: (state) => Object.values(state.items),
+	},
 	mutations: {
 		search(state, payload) {
 			state.search = payload;
@@ -12,8 +15,8 @@ export default createStore({
 		addAll(state, payload) {
 			state.items = payload;
 		},
-		add(state, { id, ...payload }) {
-			state.items[id] = payload;
+		add(state, payload) {
+			state.items[payload.id] = payload;
 		},
 		create(state, { id, ...payload }) {
 			state.items[id] = payload;
@@ -41,14 +44,12 @@ export default createStore({
 		async create({ commit }, payload) {
 			const url = new URL('https://jqhtg290ee.execute-api.eu-west-3.amazonaws.com/');
 
-			// url.search = new URLSearchParams(payload).toString();
 			fetch(url, {
 				method: 'POST',
 				cache: 'no-cache',
 				mode: 'cors',
 				headers: {
 					'Content-Type': 'application/json',
-					// 'Content-Type': 'application/x-www-form-urlencoded',
 				},
 				body: JSON.stringify(payload),
 			})
@@ -68,7 +69,6 @@ export default createStore({
 				mode: 'cors',
 				headers: {
 					'Content-Type': 'application/json',
-					// 'Content-Type': 'application/x-www-form-urlencoded',
 				},
 				body: JSON.stringify(payload),
 			})

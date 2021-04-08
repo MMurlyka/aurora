@@ -1,6 +1,6 @@
 <template lang="pug">
-router-link.Item(:to="'/item/' + code" v-if="isVisible")
-	.Item__Code(:class="{Item__Discount: item.discounted}") {{ code }}
+router-link.Item(:to="'/item/' + item.id" v-if="isVisible")
+	.Item__Code(:class="{Item__Discount: item.discounted}") {{ item.id }}
 	.Item__Name {{ item.name }}
 		span.Item__Piece(v-if="item.piece")  [шт.]
 		span.Item__Weight(v-if="!item.piece")  [ваг.]

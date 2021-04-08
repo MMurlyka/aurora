@@ -7,7 +7,7 @@
 	footer.Page__Foo
 		nav.Nav
 			ul.Nav__List
-				//li.Nav__Item
+				li.Nav__Item
 					router-link.Nav__Link(to="/settings")
 						icon-cogs.Nav__Icon(width="20" height="20")
 				li.Nav__Item

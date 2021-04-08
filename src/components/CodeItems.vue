@@ -1,7 +1,7 @@
 <template lang="pug">
 .Code-Items
 	code-item.Code-Items__Item(
-	v-for="(item, code) in items" :code="code" :item="item")
+	v-for="item in items" :item="item")
 	.Code-Items__404(v-if="items.length === 0") Ничего не нашлось. Иди, Аня даст код:)
 </template>
 
